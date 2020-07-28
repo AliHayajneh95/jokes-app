@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <%- include('layout/header'); %>
+    </header>
+    <section>
+        
+        <div>
+            <h2><%= newData.type%></h2>
+            <p><%= newData.setup%></p>
+            <p><%= newData.punchline%></p>
+
+        </div>
+<button class="update">click to update</button>
+        <form action="/update?_method=put" method="post" class="hidden">
+            <input class="hidden" type="text" name="id" value="<%= newData.id%>"><br>
+
+            <input type="text" name="type" value="<%= newData.type%>"><br>
+            <input type="text" name="setup" value="<%= newData.setup%>"><br>
+            <input type="text" name="punchline" value="<%= newData.punchline%>"><br>
+            <button>update</button><br>
+        </form>
+
+        <form action="/delete?_method=delete" method="post">
+            <input class="hidden" type="text" name="id" value="<%= newData.id%>">
+            <button>delete</button>
+        </form>
+       
+    </section>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <header>
+        <%- include('layout/header'); %>
+    </header>
+    <section>
+        <% newData.forEach((elem,idx)=>{ %>
+        <div>
+            <h2>Joke # <%= idx+1 %></h2>
+            <h2><%= elem.type%></h2>
+            <p><%= elem.setup%></p>
+            <p><%= elem.punchline%></p>
+
+            <form action="/addfav" method="post">
+            <input class="hidden" type="text" name="type" value="<%= elem.type%>" >
+            <input class="hidden" type="text" name="setup" value="<%= elem.setup%>">
+            <input class="hidden" type="text" name="punchline" value="<%= elem.punchline%>">
+            <button>add to my jokes list</button>
+
+            </form>
+
+        </div>
+        <%})%>
+    </section>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

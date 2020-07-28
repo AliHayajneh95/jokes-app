@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <%- include('layout/header'); %>
+    </header>
+    <section>
+        <% newData.forEach(elem=>{ %>
+        <div>
+            <h2><%= elem.type%></h2>
+            <p><%= elem.setup%></p>
+            <p><%= elem.punchline%></p>
+            <a href="/fav/<%= elem.id%>">view details</a>
+
+     
+
+        </div>
+        <%})%>
+    </section>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
